@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { Content } from 'next/font/google';
 
 interface CardProps {
   title: string;
@@ -18,7 +19,7 @@ const Card: React.FC<CardProps> = ({ title, description, imgSrc, imgAlt, linkUrl
                 <img src={imgSrc} alt={imgAlt} className="w-full" />
             </figure>
             <div className="card-body opacity-0 hover:opacity-100 transition-opacity duration-300">
-                <h2 className="card-title">{title}</h2>
+                <h2 className="card-title">{title}</h2> 
                 <p>{description}</p>
                 <div className="card-actions justify-end">
                 </div>

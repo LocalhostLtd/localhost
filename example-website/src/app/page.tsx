@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "../../public/XIV.png";
 import CardContainer from "@/components/CardContainer";
 
 export default function Home() {
@@ -6,6 +6,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between">
       <div>
         <CardContainer />
+        {/* <img src={Image.src} ></img> */}
       </div>
     </main>
   );
