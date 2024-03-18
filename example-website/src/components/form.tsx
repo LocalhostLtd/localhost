@@ -9,20 +9,13 @@ interface FormProps {
   inputs: string[];
 }
 
-// Data collected by the form
-// Need to be able to adjust the form to collect different types of data
+// Data collected by the form depending on inputs
 interface FormDataProps {
-  name: string;
-  email: string;
-  message: string;
+  [key: string]: string;
 }
 
 const Form: React.FC<FormProps> = (props) => {
-  const [formData, setFormData] = useState<FormDataProps>({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState<FormDataProps>({});
 
   // When the text in one of the inputs changes, updating the value of the appropriate form property
   const handleChange = (
@@ -37,54 +30,50 @@ const Form: React.FC<FormProps> = (props) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // The email must be filled in to submit the form
-    if (formData.email.trim() !== "") {
-      // Data currently just logged, needs to be linked to a backend
-      console.log(formData);
-      alert("Form submitted successfully!");
-      setFormData({ name: "", email: "", message: "" });
-    }
+    // Data currently just logged, needs to be linked to a backend
+    console.log(formData);
+    alert("Form submitted successfully!");
+    setFormData({});
   };
 
-  // Three types of inputs: text (short input), email (contact), and message (long input)
+  // Three main types of inputs, email, long, and short
   const renderInputs = (input: string) => {
     switch (input) {
-      case "name":
+      case input.includes("email") ? input : "":
+        return (
+          <ShortInput
+            name={input}
+            type="email"
+            placeholder={"Enter your " + input}
+            style=""
+            onChange={handleChange}
+            data={formData[input] || ""}
+          />
+        );
+      // Can use other key words to determine if the input should be a long input
+      case input.includes("message") ? input : "":
+        return (
+          <LongInput
+            name={input}
+            type="text"
+            placeholder={"Enter your " + input}
+            style=" h-32"
+            onChange={handleChange}
+            data={formData[input] || ""}
+          />
+        );
+      // Short answer input unless otherwise specified
+      default:
         return (
           <ShortInput
             name={input}
             type="text"
-            placeholder={"Enter your name"}
+            placeholder={"Enter your " + input}
             style=""
             onChange={handleChange}
-            data={formData.name}
+            data={formData[input] || ""}
           />
         );
-      case "email":
-        return (
-          <ShortInput
-            name="email"
-            type="email"
-            placeholder="Enter your email"
-            style=""
-            onChange={handleChange}
-            data={formData.email}
-          />
-        );
-      case "message":
-        return (
-          <LongInput
-            name="message"
-            type="text"
-            placeholder="Enter your message"
-            style=" h-32"
-            onChange={handleChange}
-            data={formData.message}
-          />
-        );
-      // If not email or message, short answer input labeled with the input name
-      default:
-        return null;
     }
   };
 
