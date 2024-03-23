@@ -1,12 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import { ShortInput, LongInput, MenuInput } from "./form_inputs";
+import { ShortInput, LongInput, MenuInput, SliderInput } from "./form_inputs";
 
 // Information to describe the form
 interface FormProps {
   id: string;
   name: string;
-  inputs: Array<[string, string, string[]]>;
+  inputs: Array<[string, string, string, string[]]>;
 }
 
 // Data collected by the form depending on inputs
@@ -37,55 +37,45 @@ const Form: React.FC<FormProps> = (props) => {
   };
 
   // Three main types of inputs, email, long, and short
-  const renderInputs = (input: [string, string, string[]]) => {
-    const [inputName, inputType, inputOptions] = input;
+  const renderInputs = (input: [string, string, string, string[]]) => {
+    const [inputName, inputType, inputPlaceholder, inputOptions] = input;
 
-    switch (inputType) {
-      case inputType.includes("email") ? inputType : "":
-        return (
-          <ShortInput
-            name={inputName}
-            type="email"
-            placeholder={"Enter your " + inputName}
-            onChange={handleChange}
-            data={formData[inputName] || ""}
-          />
-        );
-      // Can use other key words to determine if the input should be a long input
-      case inputType.includes("message") ? inputType : "":
-        return (
+    return (
+      <div className="mb-6">
+        {inputType.includes("long") ? (
           <LongInput
             name={inputName}
             type="text"
-            placeholder={"Enter your " + inputName}
+            placeholder={inputPlaceholder || "Enter your " + inputName}
             style=" h-32"
             onChange={handleChange}
             data={formData[inputName] || ""}
           />
-        );
-      case inputType.includes("menu") ? inputType : "":
-        return (
+        ) : inputType.includes("menu") ? (
           <MenuInput
             name={inputName}
-            type="text"
-            placeholder=""
             onChange={handleChange}
             data={formData[inputName] || ""}
-            menu_options={inputOptions}
+            options={inputOptions}
           />
-        );
-      // Short answer input unless otherwise specified
-      default:
-        return (
+        ) : inputType.includes("slider") ? (
+          <SliderInput
+            name={inputName}
+            options={inputOptions}
+            onChange={handleChange}
+            data={formData[inputName] || ""}
+          />
+        ) : (
           <ShortInput
             name={inputName}
-            type="text"
-            placeholder={"Enter your " + input}
+            type={inputType}
+            placeholder={inputPlaceholder || "Enter your " + inputName}
             onChange={handleChange}
             data={formData[inputName] || ""}
           />
-        );
-    }
+        )}
+      </div>
+    );
   };
 
   return (
