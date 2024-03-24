@@ -40,7 +40,6 @@ const Form: React.FC<FormProps> = (props) => {
   const renderInputs = (input: [string, string, string, string[]]) => {
     const [inputName, inputType, inputPlaceholder, inputOptions] = input;
     const isRequired = inputType.includes("required");
-
     return (
       <div className="mb-6">
         {inputType.includes("long") ? (
@@ -66,7 +65,7 @@ const Form: React.FC<FormProps> = (props) => {
             name={inputName}
             options={inputOptions}
             onChange={handleChange}
-            data={formData[inputName] || ""}
+            data={formData[inputName] || inputOptions[0] || ""}
             required={isRequired}
           />
         ) : (

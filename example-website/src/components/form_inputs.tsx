@@ -5,6 +5,7 @@ interface InputProps {
   placeholder?: string;
   style?: string;
   data: string;
+  multiData?: string[];
   required: boolean;
   // Options mainly used for the dropdown menu and slider, can be left empty for other input types
   options?: string[];
@@ -179,7 +180,7 @@ const SliderInput: React.FC<InputProps> = (props) => {
         type="range"
         min={props.options?.[0] ?? 0}
         max={props.options?.[1] ?? 100}
-        value={props.data}
+        value={props.data || props.options?.[0]}
         required={props.required}
         className="range"
         step={props.options?.[2] ?? 1}
