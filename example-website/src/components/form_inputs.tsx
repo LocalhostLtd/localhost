@@ -5,6 +5,7 @@ interface InputProps {
   placeholder?: string;
   style?: string;
   data: string;
+  required: boolean;
   // Options mainly used for the dropdown menu and slider, can be left empty for other input types
   options?: string[];
   onChange: (
@@ -29,7 +30,9 @@ const ShortInput: React.FC<InputProps> = (props) => {
         htmlFor={props.name.toLowerCase()}
         className="block text-sm font-medium text-gray-700"
       >
-        {props.name.charAt(0).toUpperCase() + props.name.slice(1).toLowerCase()}
+        {props.name.charAt(0).toUpperCase() +
+          props.name.slice(1).toLowerCase() +
+          (props.required ? " *" : "")}
       </label>
       <input
         id={props.name.toLowerCase()}
@@ -38,6 +41,7 @@ const ShortInput: React.FC<InputProps> = (props) => {
         className={"input input-bordered " + props.style}
         placeholder={props.placeholder}
         value={props.data}
+        required={props.required}
         onChange={handleChange}
       />
     </div>
@@ -61,7 +65,9 @@ const LongInput: React.FC<InputProps> = (props) => {
         htmlFor={props.name.toLowerCase()}
         className="block text-sm font-medium text-gray-700"
       >
-        {props.name.charAt(0).toUpperCase() + props.name.slice(1).toLowerCase()}
+        {props.name.charAt(0).toUpperCase() +
+          props.name.slice(1).toLowerCase() +
+          (props.required ? " *" : "")}
       </label>
       <textarea
         id={props.name.toLowerCase()}
@@ -70,6 +76,7 @@ const LongInput: React.FC<InputProps> = (props) => {
         placeholder={props.placeholder}
         cols={40}
         value={props.data}
+        required={props.required}
         onChange={handleChange}
       />
     </div>
@@ -94,13 +101,16 @@ const MenuInput: React.FC<InputProps> = (props) => {
         htmlFor={props.name.toLowerCase()}
         className="block text-sm font-medium text-gray-700"
       >
-        {props.name.charAt(0).toUpperCase() + props.name.slice(1).toLowerCase()}
+        {props.name.charAt(0).toUpperCase() +
+          props.name.slice(1).toLowerCase() +
+          (props.required ? " *" : "")}
       </label>
       <select
         id={props.name.toLowerCase()}
         name={props.name.toLowerCase()}
         className={"select select-bordered" + props.style}
         value={props.data}
+        required={props.required}
         onChange={handleSelectChange}
       >
         <option
@@ -127,10 +137,9 @@ const SliderInput: React.FC<InputProps> = (props) => {
   // Function to render the step marks on the slider
   const renderStepMarks = () => {
     const [min, max, step, suffix, type] = props.options ?? [];
-    const numberOfSteps = (Number(max) - Number(min)) / Number(step);
     const marks = [];
 
-    for (let i = 0; i <= numberOfSteps; i++) {
+    for (let i = 0; i <= (Number(max) - Number(min)) / Number(step); i++) {
       const value = Number(min) + Number(step) * i;
       marks.push(
         <span
@@ -160,7 +169,9 @@ const SliderInput: React.FC<InputProps> = (props) => {
         htmlFor={props.name.toLowerCase()}
         className="block text-sm font-medium text-gray-700"
       >
-        {props.name.charAt(0).toUpperCase() + props.name.slice(1).toLowerCase()}
+        {props.name.charAt(0).toUpperCase() +
+          props.name.slice(1).toLowerCase() +
+          (props.required ? " *" : "")}
       </label>
       <input
         id={props.name.toLowerCase()}
@@ -169,6 +180,7 @@ const SliderInput: React.FC<InputProps> = (props) => {
         min={props.options?.[0] ?? 0}
         max={props.options?.[1] ?? 100}
         value={props.data}
+        required={props.required}
         className="range"
         step={props.options?.[2] ?? 1}
         onChange={handleChange}

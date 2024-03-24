@@ -39,6 +39,7 @@ const Form: React.FC<FormProps> = (props) => {
   // Three main types of inputs, email, long, and short
   const renderInputs = (input: [string, string, string, string[]]) => {
     const [inputName, inputType, inputPlaceholder, inputOptions] = input;
+    const isRequired = inputType.includes("required");
 
     return (
       <div className="mb-6">
@@ -50,12 +51,14 @@ const Form: React.FC<FormProps> = (props) => {
             style=" h-32"
             onChange={handleChange}
             data={formData[inputName] || ""}
+            required={isRequired}
           />
         ) : inputType.includes("menu") ? (
           <MenuInput
             name={inputName}
             onChange={handleChange}
             data={formData[inputName] || ""}
+            required={isRequired}
             options={inputOptions}
           />
         ) : inputType.includes("slider") ? (
@@ -64,6 +67,7 @@ const Form: React.FC<FormProps> = (props) => {
             options={inputOptions}
             onChange={handleChange}
             data={formData[inputName] || ""}
+            required={isRequired}
           />
         ) : (
           <ShortInput
@@ -72,6 +76,7 @@ const Form: React.FC<FormProps> = (props) => {
             placeholder={inputPlaceholder || "Enter your " + inputName}
             onChange={handleChange}
             data={formData[inputName] || ""}
+            required={isRequired}
           />
         )}
       </div>
