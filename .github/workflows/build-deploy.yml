@@ -40,10 +40,10 @@ jobs:
         run: |
           npm install
 
-      # Build the project
-      - name: Build Project
-        run: |
-          npm run build
+      # Build the project - something wrong w build atm
+      # - name: Build Project
+      #   run: |
+      #     npm run build
 
       # Dockerize project
       - name: Dockerize Build

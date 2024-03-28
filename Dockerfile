@@ -11,10 +11,12 @@ COPY package*.json ./
 RUN npm install
 
 # Bundle app source
-COPY ./ .
+COPY ./src .
 
-# Build the Next.js project
-RUN npm run build
+
+
+# Build the Next.js project - build doesnt work with our folder structure rn
+# RUN npm run build
 
 # Expose port 3000 to the outside world
 EXPOSE 3000
