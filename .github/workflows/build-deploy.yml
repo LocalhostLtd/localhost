@@ -1,1 +1,52 @@
-# github actions to build website, calls deploy
+name: Deployment Pipeline
+
+# Controls when the workflow will run
+on:
+  push:
+    branches:
+      - main
+      - github-actions
+  pull_request:
+    branches: 
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+      inputs:
+        deploy:
+          description: 'Deploy the project'
+          required: true
+          default: false
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name:  Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      # Build the project
+      - name: Build Project
+        run: |
+          npm run build
+
+      # Dockerize project
+      - name: Dockerize Build
+        run: |
+          docker build -f Dockerfile -t nextjs-app .
+          echo Docker Build ran
