@@ -1,4 +1,4 @@
-name: Deployment Pipeline
+name: Pipeline
 
 # Controls when the workflow will run
 on:
@@ -66,30 +66,8 @@ jobs:
     needs: Prettier
     runs-on: ubuntu-latest
     steps:
-      - name: Mock Test
-        run: echo 'Unit Tests go here'
+      # - name: Mock Test
+      #   run: echo 'Unit Tests go here'
 
-      # - name: Check out Git repository
-      #   uses: actions/checkout@v2
-
-      # - uses: actions/cache@v2
-      #   with:
-      #     path: ~/.npm
-      #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-node-
-
-      # - name: Set up Node.js
-      #   uses: actions/setup-node@v1
-      #   with:
-      #     node-version: 20
-
-      # # Installs dev dependencies
-      # - name: Install dev dependencies
-      #   run: npm install
-
-      # - name: Run build
-      #   run: npm run build --if-present
-
-      # - name: Run tests
-      #   run: npm test
+      - name: Run tests
+        run: npm test

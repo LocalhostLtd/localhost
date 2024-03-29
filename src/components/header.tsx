@@ -1,6 +1,6 @@
 function Header(): any {
   return (
-    <div className="p-5">
+    <div className="p-5" role="banner">
       <div className="navbar bg-base-100 rounded-3xl sticky top-0 z-10 px-10 bg-opacity-60">
       <div className="flex-none lg:hidden md:hidden sm:block sm:px-2">
         <button className="btn btn-square btn-ghost">
