@@ -52,15 +52,15 @@ jobs:
       #     echo Docker Build ran
 
 
-    - name: Run Prettier
-      uses: ./.github/workflows/prettier.yml
-      with:
-        run-prettier: true
+      - name: Run Prettier
+        uses: ./.github/workflows/prettier.yml
+        with:
+          run-prettier: true
 
 
-    - name: Run Tests
-      uses: ./.github/workflows/unit-tests.yml
-      with:
-        # Pass input parameters here
-        run-frontend-tests: true
-        run-backend-tests: false
+      - name: Run Tests
+        uses: ./.github/workflows/unit-tests.yml
+        with:
+          # Pass input parameters here
+          run-frontend-tests: true
+          run-backend-tests: false
