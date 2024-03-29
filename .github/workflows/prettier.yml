@@ -12,15 +12,15 @@ on:
 
 jobs:
   run-prettier:
-    name: Run prettier
-    runs-on: self-hosted
-    # defaults:
-    #   run:
-    #     working-directory: ./frontend
-    steps:
+    - name: Run prettier
+      runs-on: self-hosted
+      # defaults:
+      #   run:
+      #     working-directory: ./frontend
+      steps:
 
-      - name: Run Prettier
-        run: echo 'Prettier is run here'
-      # # Runs prettier
-      # - name: Run code style check
-      #   run: npm run prettier
+        - name: Run Prettier
+          run: echo 'Prettier is run here'
+        # # Runs prettier
+        # - name: Run code style check
+        #   run: npm run prettier
