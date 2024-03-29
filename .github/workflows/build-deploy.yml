@@ -40,13 +40,13 @@ jobs:
         run: |
           npm install
 
-      # Build the project - something wrong w build atm
-      # - name: Build Project
-      #   run: |
-      #     npm run build
-
-      # Dockerize project
-      - name: Dockerize Build
+      # Build the project
+      - name: Build Project
         run: |
-          docker build -f Dockerfile -t nextjs-app .
-          echo Docker Build ran
+          npm run build
+
+      # # Dockerize project - unnecessary for now
+      # - name: Dockerize Build
+      #   run: |
+      #     docker build -f Dockerfile -t nextjs-app .
+      #     echo Docker Build ran
