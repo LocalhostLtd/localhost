@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
     inputs:
       deploy:
-        description: 'Deploy the project'
+        description: "Deploy the project"
         required: true
         default: false
 
@@ -34,7 +34,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install dependencies
         run: |
@@ -76,7 +76,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install dependencies
         run: |

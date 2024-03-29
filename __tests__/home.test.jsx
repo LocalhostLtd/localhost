@@ -1,9 +1,8 @@
-import '@testing-library/jest-dom'
-import { render, screen } from '@testing-library/react'
-import Home from '../src/app/home/page'
-import Header from '../src/components/header'
-import CardContainer from '../src/components/CardContainer'
-
+import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
+import Home from "../src/app/home/page";
+import Header from "../src/components/header";
+import CardContainer from "../src/components/CardContainer";
 
 // Mock IntersectionObserver for Framer-Motion animations
 class IntersectionObserver {
@@ -24,33 +23,32 @@ class IntersectionObserver {
 
 global.IntersectionObserver = IntersectionObserver;
 
-
-describe('Home', () => {
-  it('renders the Header component', () => {
+describe("Home", () => {
+  it("renders the Header component", () => {
     render(<Home />);
-    const headerElement = screen.getByRole('banner');
+    const headerElement = screen.getByRole("banner");
     expect(headerElement).toBeInTheDocument();
   });
 
-  it('renders the CardContainer component', () => {
+  it("renders the CardContainer component", () => {
     render(<Home />);
-    const cardContainerElement = screen.getByRole('main');
+    const cardContainerElement = screen.getByRole("main");
     expect(cardContainerElement).toBeInTheDocument();
   });
 });
 
-describe('Header', () => {
-  it('renders the navigation links', () => {
+describe("Header", () => {
+  it("renders the navigation links", () => {
     render(<Header />);
     const aboutLink = screen.getByText(/about us/i);
     expect(aboutLink).toBeInTheDocument();
   });
 });
 
-describe('CardContainer', () => {
-  it('renders the correct number of cards', () => {
+describe("CardContainer", () => {
+  it("renders the correct number of cards", () => {
     render(<CardContainer />);
-    const cards = screen.getAllByRole('link');
+    const cards = screen.getAllByRole("link");
     expect(cards).toHaveLength(3);
   });
 
