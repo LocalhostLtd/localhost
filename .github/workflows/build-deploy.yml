@@ -51,6 +51,10 @@ jobs:
       #     docker build -f Dockerfile -t nextjs-app .
       #     echo Docker Build ran
 
+      # # Run Unit Tests
+      # - name: Run tests
+      #   run: npm test
+
   Prettier:
     needs: Build
     runs-on: ubuntu-latest
@@ -66,8 +70,18 @@ jobs:
     needs: Prettier
     runs-on: ubuntu-latest
     steps:
-      # - name: Mock Test
-      #   run: echo 'Unit Tests go here'
+      - name: Check out code
+        uses: actions/checkout@v3
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      # Run Unit Tests
       - name: Run tests
         run: npm test
