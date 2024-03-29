@@ -9,7 +9,7 @@
     "lint": "next lint --cache --cache-strategy content --fix",
     "test": "jest",
     "test:watch": "jest --watch",
-    "format": "prettier --write ."
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "dotenv": "^16.4.5",
