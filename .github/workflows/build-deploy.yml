@@ -62,7 +62,7 @@ jobs:
       # - name: Run code style check
       #   run: npm run prettier
 
-  unit-tests:
+  Unit-Tests:
     needs: Prettier
     runs-on: ubuntu-latest
     steps:
