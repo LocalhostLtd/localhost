@@ -1,77 +1,92 @@
-# name: Tests
+name: Tests
 
 # edit this file later for testing
 
-# on:
-#   push:
-#     branches:
-#       - main
-#     paths-ignore:
-#       - "ignored_paths/**"
-#   pull_request:
-#     paths-ignore:
-#       - "ignored_paths/**"
+on:
+  workflow_call:
+    inputs:
+      run-frontend-tests:
+        description: 'Run frontend tests'
+        required: true
+        default: 'true'
+      run-backend-tests:
+        description: 'Run backend tests'
+        required: true
+        default: 'true'
 
-# jobs:
-#   unit-tests-frontend:
-#     name: Run unit tests frontend
-#     runs-on: ubuntu-latest
-#     defaults:
-#       run:
-#         working-directory: ./frontend
+jobs:
+  unit-tests-frontend:
+    if: ${{ inputs.run-frontend-tests == 'true' }}
+      name: Run unit tests frontend
+      runs-on: self-hosted
+      # defaults:
+      #   run:
+      #     working-directory: ./frontend
 
-#     steps:
-#       - name: Check out Git repository
-#         uses: actions/checkout@v2
+      steps:
 
-#       - uses: actions/cache@v2
-#         with:
-#           path: ~/.npm
-#           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-#           restore-keys: |
-#             ${{ runner.os }}-node-
 
-#       - name: Set up Node.js
-#         uses: actions/setup-node@v1
-#         with:
-#           node-version: 14
+        - name: Mock Test
+          run: echo 'Unit Tests for Frontend go here'
 
-#       # Installs dev dependencies
-#       - name: Install dev dependencies
-#         run: yarn install
+        # - name: Check out Git repository
+        #   uses: actions/checkout@v2
 
-#       - name: Run build
-#         run: yarn run build --if-present
+        # - uses: actions/cache@v2
+        #   with:
+        #     path: ~/.npm
+        #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        #     restore-keys: |
+        #       ${{ runner.os }}-node-
 
-#       - name: Run tests
-#         run: yarn test
+        # - name: Set up Node.js
+        #   uses: actions/setup-node@v1
+        #   with:
+        #     node-version: 20
 
-#   unit-tests-backend:
-#     name: Run unit tests backend
-#     runs-on: ubuntu-latest
-#     defaults:
-#       run:
-#         working-directory: ./backend
+        # # Installs dev dependencies
+        # - name: Install dev dependencies
+        #   run: npm install
 
-#     steps:
-#       - name: Check out Git repository
-#         uses: actions/checkout@v2
+        # - name: Run build
+        #   run: npm run build --if-present
 
-#       - uses: actions/cache@v2
-#         with:
-#           path: ~/.npm
-#           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-#           restore-keys: |
-#             ${{ runner.os }}-node-
+        # - name: Run tests
+        #   run: npm test
 
-#       - name: Set up Node.js
-#         uses: actions/setup-node@v1
-#         with:
-#           node-version: 14
+  unit-tests-backend:
+    if: ${{ inputs.run-backend-tests == 'true' }}
+      name: Run unit tests backend
+      runs-on: self-hosted
+      # defaults:
+      #   run:
+      #     working-directory: ./frontend
 
-#       # Installs dev dependencies
-#       - name: Install dev dependencies
-#         run: yarn install
+      steps:
+        - name: Mock Test
+          run: echo 'Unit Tests for Backend go here'
 
-#       - name: Run tests
-#         run: yarn test
+        # - name: Check out Git repository
+        #   uses: actions/checkout@v2
+
+        # - uses: actions/cache@v2
+        #   with:
+        #     path: ~/.npm
+        #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        #     restore-keys: |
+        #       ${{ runner.os }}-node-
+
+        # - name: Set up Node.js
+        #   uses: actions/setup-node@v1
+        #   with:
+        #     node-version: 20
+
+        # # Installs dev dependencies
+        # - name: Install dev dependencies
+        #   run: npm install
+
+        # - name: Run build
+        #   run: npm run build --if-present
+
+        # - name: Run tests
+        #   run: npm test
