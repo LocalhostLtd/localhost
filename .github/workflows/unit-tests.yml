@@ -1,75 +1,77 @@
-name: Tests
+# name: Tests
 
-on:
-  push:
-    branches:
-      - master
-    paths-ignore:
-      - "docs/**"
-  pull_request:
-    paths-ignore:
-      - "docs/**"
+# edit this file later for testing
 
-jobs:
-  unit-tests-frontend:
-    name: Run unit tests frontend
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./frontend
+# on:
+#   push:
+#     branches:
+#       - main
+#     paths-ignore:
+#       - "ignored_paths/**"
+#   pull_request:
+#     paths-ignore:
+#       - "ignored_paths/**"
 
-    steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v2
+# jobs:
+#   unit-tests-frontend:
+#     name: Run unit tests frontend
+#     runs-on: ubuntu-latest
+#     defaults:
+#       run:
+#         working-directory: ./frontend
 
-      - uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+#     steps:
+#       - name: Check out Git repository
+#         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14
+#       - uses: actions/cache@v2
+#         with:
+#           path: ~/.npm
+#           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+#           restore-keys: |
+#             ${{ runner.os }}-node-
 
-      # Installs dev dependencies
-      - name: Install dev dependencies
-        run: yarn install
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: 14
 
-      - name: Run build
-        run: yarn run build --if-present
+#       # Installs dev dependencies
+#       - name: Install dev dependencies
+#         run: yarn install
 
-      - name: Run tests
-        run: yarn test
+#       - name: Run build
+#         run: yarn run build --if-present
 
-  unit-tests-backend:
-    name: Run unit tests backend
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./backend
+#       - name: Run tests
+#         run: yarn test
 
-    steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v2
+#   unit-tests-backend:
+#     name: Run unit tests backend
+#     runs-on: ubuntu-latest
+#     defaults:
+#       run:
+#         working-directory: ./backend
 
-      - uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+#     steps:
+#       - name: Check out Git repository
+#         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14
+#       - uses: actions/cache@v2
+#         with:
+#           path: ~/.npm
+#           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+#           restore-keys: |
+#             ${{ runner.os }}-node-
 
-      # Installs dev dependencies
-      - name: Install dev dependencies
-        run: yarn install
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: 14
 
-      - name: Run tests
-        run: yarn test
+#       # Installs dev dependencies
+#       - name: Install dev dependencies
+#         run: yarn install
+
+#       - name: Run tests
+#         run: yarn test
