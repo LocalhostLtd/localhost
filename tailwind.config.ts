@@ -8,11 +8,24 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: '#000000',
+        'primary-content': '#FFFFFF',
+        secondary: '#044C4C',
+        accent: '#3EFBCB',
+        customGreen: '#044C4C',
+        'base-100': '#000000',
+        textPrimary: '#FFFFFF',
+        textSecondary: '#3EFBCB',
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        sans: ['monospace', 'sans-serif']
+      }
     },
   },
   plugins: [require("daisyui")],
