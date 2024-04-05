@@ -28,6 +28,24 @@ const config: Config = {
       }
     },
   },
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          "primary": "#ffffff",
+          "secondary": "#ff00ff",
+          "accent": "#00ffff",
+          "neutral": "#ff00ff",
+          "base-100": "#000000",
+          "info": "#0000ff",
+          "success": "#00ff00",
+          "warning": "#00ff00",
+          "error": "#ff0000",
+        },
+      },
+      "dark", "bumblebee",
+    ],
+  },
   plugins: [require("daisyui")],
 };
 export default config;
