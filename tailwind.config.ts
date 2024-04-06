@@ -8,16 +8,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        primary: '#000000',
-        'primary-content': '#FFFFFF',
-        secondary: '#044C4C',
-        accent: '#3EFBCB',
-        customGreen: '#044C4C',
-        'base-100': '#000000',
-        textPrimary: '#FFFFFF',
-        textSecondary: '#3EFBCB',
-      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -31,16 +21,16 @@ const config: Config = {
   daisyui: {
     themes: [
       {
-        mytheme: {
-          "primary": "#ffffff",
-          "secondary": "#ff00ff",
-          "accent": "#00ffff",
-          "neutral": "#ff00ff",
-          "base-100": "#000000",
-          "info": "#0000ff",
-          "success": "#00ff00",
-          "warning": "#00ff00",
-          "error": "#ff0000",
+        localhostTheme: {
+          "primary": "#000000",
+          "secondary": "#e5e7eb",
+          "accent": "#3EFBCB",
+          "neutral": "#1e8f8a",
+          "base-100": "#044C4C",
+          "info": "#0e7490",
+          "success": "#00FFFF",
+          "warning": "#eab308",
+          "error": "#881337",       
         },
       },
       "dark", "bumblebee",
