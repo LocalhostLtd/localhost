@@ -14,26 +14,27 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        sans: ['monospace', 'sans-serif']
-      }
+        sans: ["monospace", "sans-serif"],
+      },
     },
   },
   daisyui: {
     themes: [
       {
         localhostTheme: {
-          "primary": "#000000",
-          "secondary": "#e5e7eb",
-          "accent": "#3EFBCB",
-          "neutral": "#1e8f8a",
+          primary: "#000000",
+          secondary: "#e5e7eb",
+          accent: "#3EFBCB",
+          neutral: "#1e8f8a",
           "base-100": "#044C4C",
-          "info": "#0e7490",
-          "success": "#00FFFF",
-          "warning": "#eab308",
-          "error": "#881337",       
+          info: "#0e7490",
+          success: "#00FFFF",
+          warning: "#eab308",
+          error: "#881337",
         },
       },
-      "dark", "bumblebee",
+      "dark",
+      "bumblebee",
     ],
   },
   plugins: [require("daisyui")],

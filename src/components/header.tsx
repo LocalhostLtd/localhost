@@ -20,14 +20,19 @@ function Header(): any {
           </button>
         </div>
         <div className="flex-1">
-          <a href="#" className="btn btn-ghost text-primary-content text-2xl font-bold font-sans">
+          <a
+            href="#"
+            className="btn btn-ghost text-primary-content text-2xl font-bold font-sans"
+          >
             localhost
           </a>
         </div>
         <div className="flex-none hidden lg:block md:block">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a className="btn btn-ghost text-accent text-lg font-sans">about us</a>
+              <a className="btn btn-ghost text-accent text-lg font-sans">
+                about us
+              </a>
             </li>
           </ul>
         </div>

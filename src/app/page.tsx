@@ -1,9 +1,8 @@
 import Heading from "@/components/Heading";
-import Header from '@/components/header';
-import Footer from '@/components/footer';
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 import CardContainer from "@/components/CardContainer";
-import MainText from "@/components/MainText";
-import HomeBackground from '../../public/homeBackgroundGreen.png';
+import HomeBackground from "../../public/homeBackgroundGreen.png";
 
 // below are possible ways to add the coloured overlay using css (which would make it easy to change themes)
 // currently the green background is part odf the image because text appears behind the coloured overlay otherwise.
@@ -14,20 +13,25 @@ export default function Home() {
   const mainText = "Need a website? Leave it to us.";
   const subText = "We're a group of developers";
   return (
-    <div className="bg-cover bg-center" style={{backgroundImage: `url(${HomeBackground.src})`}}>
-      
+    <div
+      className="bg-cover bg-center"
+      style={{ backgroundImage: `url(${HomeBackground.src})` }}
+    >
       <Header />
       <div className="m-[max(15vw,20px)] flex-1 items-center justify-center">
-        <h1 className="font-sans text-accent text-5xl text-center drop-shadow-lg">Need a website? Leave it to us.</h1>
+        <h1 className="font-sans text-accent text-5xl text-center drop-shadow-lg">
+          Need a website? Leave it to us.
+        </h1>
         <p className="font-sans text-base-content font-bold text-2xl text-center m-10 drop-shadow-lg">
-          We’re a group of university students united on our common interest in web design and development.
+          We’re a group of university students united on our common interest in
+          web design and development.
         </p>
       </div>
       <Heading title="our projects" />
       <div className="flex min-h-screen flex-col items-center justify-between">
-        <CardContainer /> 
+        <CardContainer />
       </div>
       <Footer />
-      </div>
+    </div>
   );
 }
