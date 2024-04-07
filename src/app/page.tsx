@@ -10,8 +10,6 @@ import HomeBackground from "../../public/homeBackgroundGreen.png";
 // <div className="fixed top-0 left-0 w-48 h-full z-0 bg-base-100 z-0 opacity-80"></div>
 
 export default function Home() {
-  const mainText = "Need a website? Leave it to us.";
-  const subText = "We're a group of developers";
   return (
     <div
       className="bg-cover bg-center"
