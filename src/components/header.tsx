@@ -1,6 +1,12 @@
 import Link from "next/link";
 
-function Header(): any {
+
+type HeaderProps = {
+  links: { href: string; text: string }[];
+};
+
+
+function Header({ links }: HeaderProps): JSX.Element {
   return (
     <div className="p-5 sticky top-0 z-10 px-5" role="banner">
       <div className="navbar bg-primary rounded-3xl opacity-70">
@@ -31,12 +37,15 @@ function Header(): any {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li
-                className="font-sans text-base-content"
-                aria-label="burgerMenu"
-              >
-                <a href="/about">about</a>
-              </li>
+            {links.map((link, index) => (
+                <li
+                  key={index}
+                  className="font-sans text-base-content"
+                  aria-label="burgerMenu"
+                >
+                  <a href={link.href}>{link.text}</a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -50,14 +59,18 @@ function Header(): any {
         </div>
         <div className="flex-none hidden lg:block md:block">
           <ul className="menu menu-horizontal px-1">
-            <li>
-              <Link
-                href="/about"
-                className="btn btn-ghost text-accent text-lg font-sans"
-              >
-                about us
-              </Link>
-            </li>
+            {links.map((link, index) => (
+                <li
+                  key={index}
+                >
+                  <Link
+                    href={link.href}
+                    className="btn btn-ghost text-accent text-lg font-sans"
+                  >
+                    {link.text}
+                  </Link>
+                </li>
+              ))}
           </ul>
         </div>
       </div>
