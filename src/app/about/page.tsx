@@ -22,23 +22,30 @@ export default function About() {
           { href: "/home", text: "home" },
         ]}
       />
-      <div className="m-[max(15vw,20px)] flex-1 items-center justify-center">
-        <h1 className="font-sans text-accent text-5xl text-center drop-shadow-lg">
-          Who we are
-        </h1>
-        <p className="font-sans text-base-content font-bold text-2xl text-center m-10 drop-shadow-lg">
-          We’re a group of university students united on our common interest in
-          web design and development.
-        </p>
-      </div>
-      <div className="m-[max(15vw,20px)] flex-1 items-center justify-center">
-        <h1 className="font-sans text-accent text-5xl text-center drop-shadow-lg">
-          Our Goal
-        </h1>
-        <p className="font-sans text-base-content font-bold text-2xl text-center m-10 drop-shadow-lg">
-          We’re a group of university students united on our common interest in
-          web design and development.
-        </p>
+      <div className="flex">
+        <div className="w-1/3 flex items-center justify-center">
+          {/* Insert some image or 3D model here */}
+        </div>
+        <div className="w-2/3">
+          <div className="mx-[max(10vw,20px)] my-[max(3vw,20px)] flex-1 items-center justify-center">
+            <h1 className="font-sans text-accent text-5xl text-center drop-shadow-lg my-[max(1vw,20px)]">
+              Who we are
+            </h1>
+            <p className="font-sans text-base-content font-bold text-2xl text-center mx-10 drop-shadow-lg">
+              We're a group of university students united on our common interest in
+              web design and development.
+            </p>
+          </div>
+          <div className="mx-[max(10vw,20px)] my-[max(7vw,20px)] flex-1 items-center justify-center">
+            <h1 className="font-sans text-accent text-5xl text-center drop-shadow-lg my-[max(1vw,20px)]">
+              Our Goal
+            </h1>
+            <p className="font-sans text-base-content font-bold text-2xl text-center mx-10 drop-shadow-lg">
+              To bring websites to local businesses extremely fast, and reliable. 
+              Offering cost-effective and efficient web development services
+            </p>
+          </div>
+        </div>
       </div>
       <Heading title="contact us" />
       <div className="flex justify-center">
