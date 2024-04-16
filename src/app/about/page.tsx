@@ -1,7 +1,7 @@
 import Heading from "@/components/Heading";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import CardContainer from "@/components/CardContainer";
+import Form from "@/components/Form";
 import HomeBackground from "../../../public/homeBackgroundGreen.png";
 
 // below are possible ways to add the coloured overlay using css (which would make it easy to change themes)
@@ -41,8 +41,22 @@ export default function About() {
         </p>
       </div>
       <Heading title="contact us" />
-      <div className="flex min-h-screen flex-col items-center justify-between">
-        <CardContainer />
+      <div className="flex justify-center">
+        <Form
+          id="1"
+          name=""
+          inputs={[
+            ["name", "short", "", []],
+            ["email", "email", "", []],
+            ["topic", "short", "", []],
+            [
+              "",
+              "long",
+              "enter message here...",
+              [],
+            ],
+          ]}
+        />
       </div>
       <Footer />
     </div>

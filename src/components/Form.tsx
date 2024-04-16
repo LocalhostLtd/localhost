@@ -46,7 +46,7 @@ const Form: React.FC<FormProps> = (props) => {
           <LongInput
             name={inputName}
             type="text"
-            placeholder={inputPlaceholder || "Enter your " + inputName}
+            placeholder={inputPlaceholder || inputName}
             style=" h-32"
             onChange={handleChange}
             data={formData[inputName] || ""}
@@ -72,7 +72,7 @@ const Form: React.FC<FormProps> = (props) => {
           <ShortInput
             name={inputName}
             type={inputType}
-            placeholder={inputPlaceholder || "Enter your " + inputName}
+            placeholder={inputPlaceholder || inputName}
             onChange={handleChange}
             data={formData[inputName] || ""}
             required={isRequired}
@@ -83,6 +83,7 @@ const Form: React.FC<FormProps> = (props) => {
   };
 
   return (
+  <div className="flex justify-center">
     <div className="container mx-auto py-6">
       <h2 className="text-2xl font-bold mb-4">{props.name}</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -91,13 +92,14 @@ const Form: React.FC<FormProps> = (props) => {
             <React.Fragment key={index}>{renderInputs(input)}</React.Fragment>
           ))}
         </div>
-        <div>
-          <button type="submit" className="btn btn-outline">
+        <div className="flex justify-center">
+          <button type="submit" className="btn btn-outline font-sans">
             Submit
           </button>
         </div>
       </form>
     </div>
+  </div>
   );
 };
 
