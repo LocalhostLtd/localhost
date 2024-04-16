@@ -24,14 +24,23 @@ export default function About() {
       />
       <div className="m-[max(15vw,20px)] flex-1 items-center justify-center">
         <h1 className="font-sans text-accent text-5xl text-center drop-shadow-lg">
-          Need a website? Leave it to us.
+          Who we are
         </h1>
         <p className="font-sans text-base-content font-bold text-2xl text-center m-10 drop-shadow-lg">
           We’re a group of university students united on our common interest in
           web design and development.
         </p>
       </div>
-      <Heading title="our projects" />
+      <div className="m-[max(15vw,20px)] flex-1 items-center justify-center">
+        <h1 className="font-sans text-accent text-5xl text-center drop-shadow-lg">
+          Our Goal
+        </h1>
+        <p className="font-sans text-base-content font-bold text-2xl text-center m-10 drop-shadow-lg">
+          We’re a group of university students united on our common interest in
+          web design and development.
+        </p>
+      </div>
+      <Heading title="contact us" />
       <div className="flex min-h-screen flex-col items-center justify-between">
         <CardContainer />
       </div>
