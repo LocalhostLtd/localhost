@@ -7,11 +7,11 @@ interface FormProps {
   id: string;
   name: string;
   inputs: Array<[string, string, string, string[]]>;
-  type?: string;
+  onsubmit?: (arg0: FormDataProps) => void;
 }
 
 // Data collected by the form depending on inputs
-interface FormDataProps {
+export interface FormDataProps {
   [key: string]: string;
 }
 
@@ -30,18 +30,14 @@ const Form: React.FC<FormProps> = (props) => {
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    if (props.type === "email") {
-      // To be implemented with email service
-      return;
-    } else if (props.type === "store") {
-      // To be implemented with database
-      return;
-    }
-
     e.preventDefault();
-    // Data currently just logged, needs to be linked to a backend
-    console.log(formData);
-    alert("Form submitted successfully!");
+    if (props.onsubmit) {
+      props.onsubmit(formData);
+    } else {
+      // Data currently just logged, needs to be linked to a backend
+      // console.log(formData);
+      alert("Form submitted successfully!");
+    }
     setFormData({});
   };
 
