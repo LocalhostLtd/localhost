@@ -35,7 +35,7 @@ const Form: React.FC<FormProps> = (props) => {
       props.onsubmit(formData);
     } else {
       // Data currently just logged, needs to be linked to a backend
-      // console.log(formData);
+      console.log(formData);
       alert("Form submitted successfully!");
     }
     setFormData({});
