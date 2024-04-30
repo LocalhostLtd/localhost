@@ -168,7 +168,7 @@ const SliderInput: React.FC<InputProps> = (props) => {
     <div className="space-y-1">
       <label
         htmlFor={props.name.toLowerCase()}
-        className="block text-sm font-medium text-gray-700"
+        className="font-sans text-base-content font-bold text-2xl text-center m-10 drop-shadow-lg"
       >
         {props.name.charAt(0).toUpperCase() +
           props.name.slice(1).toLowerCase() +
