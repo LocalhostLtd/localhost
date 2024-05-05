@@ -28,8 +28,8 @@ export default function About() {
               Who we are
             </h1>
             <p className="font-sans text-base-content font-bold text-2xl text-center mx-10 drop-shadow-lg">
-              We're a group of university students united on our common interest
-              in web design and development.
+              We are a group of university students united on our common
+              interest in web design and development.
             </p>
           </div>
           <div className="mx-[max(10vw,20px)] my-[max(7vw,20px)] flex-1 items-center justify-center">
