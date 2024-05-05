@@ -1,10 +1,8 @@
 import Link from "next/link";
 
-
 type HeaderProps = {
   links: { href: string; text: string }[];
 };
-
 
 function Header({ links }: HeaderProps): JSX.Element {
   return (
@@ -37,7 +35,7 @@ function Header({ links }: HeaderProps): JSX.Element {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-            {links.map((link, index) => (
+              {links.map((link, index) => (
                 <li
                   key={index}
                   className="font-sans text-base-content"
@@ -60,17 +58,15 @@ function Header({ links }: HeaderProps): JSX.Element {
         <div className="flex-none hidden lg:block md:block">
           <ul className="menu menu-horizontal px-1">
             {links.map((link, index) => (
-                <li
-                  key={index}
+              <li key={index}>
+                <Link
+                  href={link.href}
+                  className="btn btn-ghost text-accent text-lg font-sans"
                 >
-                  <Link
-                    href={link.href}
-                    className="btn btn-ghost text-accent text-lg font-sans"
-                  >
-                    {link.text}
-                  </Link>
-                </li>
-              ))}
+                  {link.text}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

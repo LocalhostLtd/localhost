@@ -17,11 +17,7 @@ export default function Home() {
       className="bg-cover bg-center"
       style={{ backgroundImage: `url(${HomeBackground.src})` }}
     >
-      <Header
-        links={[
-          { href: "/about", text: "about" },
-        ]}
-      />
+      <Header links={[{ href: "/about", text: "about" }]} />
       <div className="m-[max(15vw,20px)] flex-1 items-center justify-center">
         <h1 className="font-sans text-accent text-5xl text-center drop-shadow-lg">
           Need a website? Leave it to us.
