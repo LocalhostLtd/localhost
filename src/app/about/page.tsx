@@ -1,7 +1,10 @@
+"use client"
+
 import Heading from "@/components/Heading";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Form from "@/components/Form";
+import Rotatable from "@/components/RotatableComponent";
 import HomeBackground from "../../../public/homeBackgroundGreen.png";
 
 // below are possible ways to add the coloured overlay using css (which would make it easy to change themes)
@@ -22,11 +25,12 @@ export default function About() {
           { href: "/home", text: "home" },
         ]}
       />
-      <div className="flex">
-        <div className="w-1/3 flex items-center justify-center">
-          {/* Insert some image or 3D model here */}
+      <div className="flex ml-10">
+        <div className="w-1/3 flex">
+          <Rotatable />
         </div>
-        <div className="w-2/3">
+
+          <div className="w-2/3">
           <div className="mx-[max(10vw,20px)] my-[max(3vw,20px)] flex-1 items-center justify-center">
             <h1 className="font-sans text-accent text-5xl text-center drop-shadow-lg my-[max(1vw,20px)]">
               Who we are
@@ -45,6 +49,8 @@ export default function About() {
               Offering cost-effective and efficient web development services
             </p>
           </div>
+
+        
         </div>
       </div>
       <Heading title="contact us" />
