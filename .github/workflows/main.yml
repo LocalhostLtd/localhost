@@ -16,7 +16,7 @@ on:
       deploy:
         description: "Deploy the project"
         required: true
-        default: false
+        default: "false"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
