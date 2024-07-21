@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Heading from "@/components/Heading";
 import Header from "@/components/header";
@@ -20,17 +20,13 @@ export default function About() {
       className="bg-cover bg-center"
       style={{ backgroundImage: `url(${HomeBackground.src})` }}
     >
-      <Header
-        links={[
-          { href: "/home", text: "home" },
-        ]}
-      />
+      <Header links={[{ href: "/home", text: "home" }]} />
       <div className="flex ml-10">
         <div className="w-1/3 flex">
           <Rotatable />
         </div>
 
-          <div className="w-2/3">
+        <div className="w-2/3">
           <div className="mx-[max(10vw,20px)] my-[max(3vw,20px)] flex-1 items-center justify-center">
             <h1 className="font-sans text-accent text-5xl text-center drop-shadow-lg my-[max(1vw,20px)]">
               Who we are
@@ -50,8 +46,6 @@ export default function About() {
               services
             </p>
           </div>
-
-        
         </div>
       </div>
       <Heading title="contact us" />
